@@ -1,12 +1,8 @@
 package com.example.apiHelpers;
 
-import com.example.apiHelpers.pojo.CreateUserRequest;
-import com.example.apiHelpers.pojo.CreateUserResponse;
-import com.example.apiHelpers.pojo.User;
+import com.example.apiHelpers.pojo.*;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.*;
 
 public interface APIInterface {
     @GET("2")
@@ -14,4 +10,13 @@ public interface APIInterface {
 
     @POST("users")
     Call<CreateUserResponse> createUser(@Body CreateUserRequest body);
+
+    @PUT("users")
+    Call<UpdateUserResponse> updateUser(@Body UpdateUserRequest body);
+
+    @PATCH("users")
+    Call<UpdateUserResponse> updateUserByPatch(@Body UpdateUserRequest body);
+
+    @GET("2")
+    Call<Resource> getResource();
 }
